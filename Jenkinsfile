@@ -4,7 +4,10 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    HEROKU_API_KEY = credentials('rok-klancar-heroku-api-key')
+    script {
+    if (getContext(hudson.FilePath)) {
+      HEROKU_API_KEY = credentials('rok-klancar-heroku-api-key')
+    }
   }
   parameters { 
     string(name: 'APP_NAME', defaultValue: '', description: 'What is the Heroku app name?') 
