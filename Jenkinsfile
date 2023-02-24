@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t HyoMiYing/SpringWebsite:latest .'
+        sh 'docker build -t hyomiying/springwebsite:latest .'
       }
     }
     stage('Login') {
@@ -23,7 +23,7 @@ pipeline {
     stage('Push to Heroku registry') {
       steps {
         sh '''
-          docker tag HyoMiYing/SpringWebsite:latest registry.heroku.com/$APP_NAME/web
+          docker tag hyomiying/springwebsite:latest registry.heroku.com/$APP_NAME/web
           docker push registry.heroku.com/$APP_NAME/web
         '''
       }
