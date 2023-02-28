@@ -3,11 +3,9 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
-  environment {
-    HEROKU_API_KEY = credentials('rok-heroku-api-key')
-  }
   parameters { 
-    string(name: 'APP_NAME', defaultValue: '', description: 'What is the Heroku app name?') 
+    string(name: 'APP_NAME', defaultValue: '', description: 'What is the Heroku app name?')
+    string(name: 'HEROKU_API_KEY', defaultValue: '', description: 'What is the Heroku api key?')
   }
   stages {
     stage('Build') {
