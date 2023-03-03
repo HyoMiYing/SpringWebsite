@@ -14,7 +14,7 @@
     <audio id="audio-player" controls th:src="@{/ferdydurke_stream}"></audio>
     <ul>
         <li>1. Poglavje: UGRABITEV</li>
-        <li>2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
+        <li id="chapter2">2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
         <li>3. Poglavje: V MIŠNICI IN NADALJNEM MEČKANJU</li>
         <li>4. Poglavje: PREDGOVOR K FILIDORJU S PODLAGO V OTROKU</li>
         <li>5. Poglavje: FILIDOR, S PODLAGO V OTROKU</li>
@@ -31,8 +31,17 @@
 
     <p>Nazaj na <a th:href="@{/}">domačo stran</a></p>
     <script>
-        let audioPlayer = document.getElementById("audio-player");
+        const audioPlayer = document.getElementById("audio-player");
 
+        const chapter2 = document.getElementById("chapter2");
+
+        audioPlayer.addEventListener("timeupdate", (e) => {
+            console.log("Time has been updated, again!");
+        });
+
+        chapter2.addEventListener("click", (e) => {
+            audioPlayer.fastSeek(2981);
+        });
     </script>
 </body>
 </html>
