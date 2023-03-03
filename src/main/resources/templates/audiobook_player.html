@@ -35,8 +35,14 @@
 
         const chapter2 = document.getElementById("chapter2");
 
+        document.addEventListener("DOMContentLoaded", (e) => {
+            if (localStorage.getItem("player-position")) {
+                audioPlayer.fastSeek(localStorage.getItem("player-position"));
+            }
+        });
+
         audioPlayer.addEventListener("timeupdate", (e) => {
-            console.log("Time has been updated, again!");
+            localStorage.setItem("player-position", audioPlayer.currentTime);
         });
 
         chapter2.addEventListener("click", (e) => {
