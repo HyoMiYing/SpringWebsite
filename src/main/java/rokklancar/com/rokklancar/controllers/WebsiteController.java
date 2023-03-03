@@ -28,8 +28,13 @@ public class WebsiteController {
     }
 
     @GetMapping("/ferdydurke")
+    public String ferdydurke() {
+        return "audiobook_player.html";
+    }
+
+    @GetMapping("/ferdydurke_stream")
     @ResponseBody
-    public ResponseEntity<StreamingResponseBody> ferdydurke(
+    public ResponseEntity<StreamingResponseBody> ferdydurke_stream(
             @RequestHeader(value = "Range", required = false)
             String rangeHeader,
             HttpServletRequest request)
