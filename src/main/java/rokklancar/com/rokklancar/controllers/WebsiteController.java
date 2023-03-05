@@ -41,7 +41,7 @@ public class WebsiteController {
     {
         try
         {
-            String filePathString = "/home/rok/Downloads/cela_knjiga.mp3";
+            String filePathString = "src/main/resources/full_book.mp3";
             ResponseEntity<StreamingResponseBody> returnVal = mediaLoaderService.loadPartialMediaFile(filePathString, rangeHeader);
 
             return returnVal;

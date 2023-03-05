@@ -3,6 +3,7 @@ package rokklancar.com.rokklancar;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import rokklancar.com.rokklancar.services.AWSS3Service;
 
 @SpringBootApplication
 public class RokklancarApplication {
@@ -11,6 +12,7 @@ public class RokklancarApplication {
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(RokklancarApplication.class, args);
 		displayAllBeans();
+		AWSS3Service.downloadAudiobookFile();
 	}
 
 	public static void displayAllBeans() {
