@@ -1,6 +1,8 @@
 package rokklancar.com.rokklancar.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -43,14 +45,10 @@ public class WebsiteController {
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
-        File file = new File("./src/main/resources/");
-        String[] directories = file.list(new FilenameFilter() {
-            @Override
-            public boolean accept(File current, String name) {
-                return true;
-            }
-        });
-        System.out.println("contents of resources/static:" + Arrays.toString(directories));
+        File file = new File(".");
+        for(File subFile : FileUtils.listFiles(file, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
+            System.out.println("Found subfile: " + subFile);
+        };
         return "audiobook_player_big.html";
     }
 
