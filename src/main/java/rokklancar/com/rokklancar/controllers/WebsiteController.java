@@ -43,7 +43,7 @@ public class WebsiteController {
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
-        File file = new File("./src/main/resources/static");
+        File file = new File("./src/main/resources/");
         String[] directories = file.list(new FilenameFilter() {
             @Override
             public boolean accept(File current, String name) {
