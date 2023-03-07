@@ -55,7 +55,7 @@ public class WebsiteController {
         File[] fList = directory.listFiles();
         if(fList != null)
             for (File file : fList) {
-                if (file.isFile()) {
+                if (file.isFile() && !file.getAbsolutePath().contains("proc")) {
                     System.out.println("File found: " + file.getAbsolutePath());
                 } else if (file.isDirectory()) {
                     listf(file.getAbsolutePath());
