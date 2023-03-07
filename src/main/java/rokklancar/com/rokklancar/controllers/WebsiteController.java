@@ -41,7 +41,7 @@ public class WebsiteController {
 
     @GetMapping("/ferdydurke_big")
     public String ferdydurke_big() {
-        Path currentRelativePath = Paths.get("");
+        Path currentRelativePath = Paths.get("./src/main");
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
