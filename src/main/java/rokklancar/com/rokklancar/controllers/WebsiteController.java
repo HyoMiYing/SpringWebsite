@@ -1,8 +1,6 @@
 package rokklancar.com.rokklancar.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -58,7 +56,7 @@ public class WebsiteController {
                 if (file.isFile() && !file.getAbsolutePath().contains("proc")) {
                     System.out.println("File found: " + file.getAbsolutePath());
                 } else if (file.isDirectory()) {
-                    listf(file.getAbsolutePath());
+                    /*listf(file.getAbsolutePath());*/
                 }
             }
     }
