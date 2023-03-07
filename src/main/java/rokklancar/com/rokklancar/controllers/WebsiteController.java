@@ -45,7 +45,7 @@ public class WebsiteController {
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
-        File file = new File(".");
+        File file = new File("./src/main");
         for(File subFile : FileUtils.listFiles(file, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
             System.out.println("Found subfile: " + subFile);
         };
