@@ -10,8 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import rokklancar.com.rokklancar.services.MediaStreamLoader;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 @Controller
 public class WebsiteController {
@@ -34,6 +39,18 @@ public class WebsiteController {
 
     @GetMapping("/ferdydurke_big")
     public String ferdydurke_big() {
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        System.out.println("Current absolute path is: " + s);
+
+        File file = new File("./src/main/resources/static");
+        String[] directories = file.list(new FilenameFilter() {
+            @Override
+            public boolean accept(File current, String name) {
+                return true;
+            }
+        });
+        System.out.println("contents of resources/static:" + Arrays.toString(directories));
         return "audiobook_player_big.html";
     }
 
