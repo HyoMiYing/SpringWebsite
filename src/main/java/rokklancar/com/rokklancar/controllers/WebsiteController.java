@@ -45,9 +45,13 @@ public class WebsiteController {
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
-        File file = new File("./src/main");
-        for(File subFile : FileUtils.listFiles(file, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
-            System.out.println("Found subfile: " + subFile);
+        File file = new File(".");
+        for (File subFile : FileUtils.listFiles(file, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
+            try {
+                System.out.println("Found subfile: " + subFile);
+            } catch (Exception e) {
+                System.out.println("Exception: " + e);
+            }
         };
         return "audiobook_player_big.html";
     }
