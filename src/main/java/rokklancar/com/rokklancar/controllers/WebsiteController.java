@@ -14,11 +14,10 @@ import rokklancar.com.rokklancar.services.MediaStreamLoader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class WebsiteController {
@@ -45,15 +44,23 @@ public class WebsiteController {
         String s = currentRelativePath.toAbsolutePath().toString();
         System.out.println("Current absolute path is: " + s);
 
-        File file = new File(".");
-        for (File subFile : FileUtils.listFiles(file, TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE)) {
-            try {
-                System.out.println("Found subfile: " + subFile);
-            } catch (Exception e) {
-                System.out.println("Exception: " + e);
-            }
-        };
+        listf(".");
         return "audiobook_player_big.html";
+    }
+
+    public void listf(String dir) {
+        File directory = new File(dir);
+
+        // Get all files from a directory.
+        File[] fList = directory.listFiles();
+        if(fList != null)
+            for (File file : fList) {
+                if (file.isFile()) {
+                    System.out.println("File found: " + file.getAbsolutePath());
+                } else if (file.isDirectory()) {
+                    listf(file.getAbsolutePath());
+                }
+            }
     }
 
     @GetMapping("/ferdydurke_stream")
