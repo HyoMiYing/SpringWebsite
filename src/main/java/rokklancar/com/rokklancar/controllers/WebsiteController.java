@@ -32,6 +32,11 @@ public class WebsiteController {
         return "audiobook_player.html";
     }
 
+    @GetMapping("/ferdydurke_big")
+    public String ferdydurke_big() {
+        return "audiobook_player_big.html";
+    }
+
     @GetMapping("/ferdydurke_stream")
     @ResponseBody
     public ResponseEntity<StreamingResponseBody> ferdydurke_stream(
@@ -41,7 +46,7 @@ public class WebsiteController {
     {
         try
         {
-            String filePathString = "src/main/resources/full_book.mp3";
+            String filePathString = "src/main/resources/static/full_book.mp3";
             ResponseEntity<StreamingResponseBody> returnVal = mediaLoaderService.loadPartialMediaFile(filePathString, rangeHeader);
 
             return returnVal;

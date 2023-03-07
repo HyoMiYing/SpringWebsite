@@ -187,7 +187,9 @@ public class MediaStreamLoaderImplementation implements MediaStreamLoader{
             }
         };
 
-            return new ResponseEntity<StreamingResponseBody>(responseStream, responseHeaders, HttpStatus.PARTIAL_CONTENT);
+            ResponseEntity<StreamingResponseBody> responseEntity = new ResponseEntity<StreamingResponseBody>(responseStream, responseHeaders, HttpStatus.PARTIAL_CONTENT);
+        System.out.println("ResponseEntity to string: " + responseEntity.toString());
+            return responseEntity;
         }
 
     private long safeParseStringValueToLong(String valToParse, long defaultVal)

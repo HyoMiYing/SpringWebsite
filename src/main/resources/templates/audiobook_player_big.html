@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferdydurke</title>
+</head>
+<body>
+    <h1>Avdioknjiga Ferdydurke</h1>
+    <h2>Witold Gombrowitcz</h2>
+    <h3>prevedla: Katarina Šalamun-Biedrzycka</h3>
+    <h4>prebral: Rok Klančar</h4>
+    <audio id="audio-player" controls th:src="@{/full_book.mp3}"></audio>
+    <ul>
+        <li>1. Poglavje: UGRABITEV</li>
+        <li id="chapter2">2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
+        <li>3. Poglavje: V MIŠNICI IN NADALJNEM MEČKANJU</li>
+        <li>4. Poglavje: PREDGOVOR K FILIDORJU S PODLAGO V OTROKU</li>
+        <li>5. Poglavje: FILIDOR, S PODLAGO V OTROKU</li>
+        <li>6. Poglavje: ZAPELJEVANJE, SILJENJE V MLADOST SE NADALJUJE</li>
+        <li>7. Poglavje: LJUBEZEN</li>
+        <li>8. Poglavje: KOMPOT</li>
+        <li>9. Poglavje: ZALEZOVANJE, TIPANJE V SODOBNOST SE NADALJUJE</li>
+        <li>10. Poglavje: ORGIJA STEGEN IN ZNOVA V MIŠNICI</li>
+        <li>11. Poglavje: PREDGOVOR K FILIBERTU, PODLOŽENEMU Z OTROKOM</li>
+        <li>12. Poglavje: FILIBERT, PODLOŽEN Z OTROKOM</li>
+        <li>13. Poglavje: HLAPČIČ ALI NOVE NEVARNOSTI</li>
+        <li>14. Poglavje: ORGIJA FRISOV IN ZNOVA V MIŠNICI</li>
+    </ul>
+
+    <p>Nazaj na <a th:href="@{/}">domačo stran</a></p>
+    <script>
+        const audioPlayer = document.getElementById("audio-player");
+
+        const chapter2 = document.getElementById("chapter2");
+
+        document.addEventListener("DOMContentLoaded", (e) => {
+            if (localStorage.getItem("player-position")) {
+                audioPlayer.fastSeek(localStorage.getItem("player-position"));
+            }
+        });
+
+        audioPlayer.addEventListener("timeupdate", (e) => {
+            localStorage.setItem("player-position", audioPlayer.currentTime);
+        });
+
+        chapter2.addEventListener("click", (e) => {
+            audioPlayer.fastSeek(2981);
+        });
+    </script>
+</body>
+</html>

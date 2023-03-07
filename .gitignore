@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+full_book.mp3
+
 ### STS ###
 .apt_generated
 .classpath

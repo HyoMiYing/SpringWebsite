@@ -12,7 +12,11 @@ public class RokklancarApplication {
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(RokklancarApplication.class, args);
 		displayAllBeans();
-		AWSS3Service.downloadAudiobookFile();
+		if (!System.getProperty("user.name").equals("rok"))
+		{
+			System.out.println("CALLING AWS");
+			AWSS3Service.downloadAudiobookFile();
+		}
 	}
 
 	public static void displayAllBeans() {

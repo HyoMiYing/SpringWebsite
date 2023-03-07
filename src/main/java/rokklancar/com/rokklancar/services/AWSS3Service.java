@@ -31,7 +31,7 @@ public class AWSS3Service {
 
     public static void downloadAudiobookFile() {
 
-        File file = new File("src/main/resources/full_book.mp3");
+        File file = new File("src/main/resources/static/full_book.mp3");
         if(!file.exists()) {
             S3Object s3Object = s3client.getObject("ferdydurke-audio", "cela_knjiga.mp3");
             S3ObjectInputStream inputStream = s3Object.getObjectContent();
