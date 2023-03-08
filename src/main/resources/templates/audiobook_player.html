@@ -13,27 +13,40 @@
     <h4>prebral: Rok Klančar</h4>
     <audio id="audio-player" controls th:src="@{/ferdydurke_stream}"></audio>
     <ul>
-        <li>1. Poglavje: UGRABITEV</li>
+        <li id="chapter1">1. Poglavje: UGRABITEV</li>
         <li id="chapter2">2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
-        <li>3. Poglavje: V MIŠNICI IN NADALJNEM MEČKANJU</li>
-        <li>4. Poglavje: PREDGOVOR K FILIDORJU S PODLAGO V OTROKU</li>
-        <li>5. Poglavje: FILIDOR, S PODLAGO V OTROKU</li>
-        <li>6. Poglavje: ZAPELJEVANJE, SILJENJE V MLADOST SE NADALJUJE</li>
-        <li>7. Poglavje: LJUBEZEN</li>
-        <li>8. Poglavje: KOMPOT</li>
-        <li>9. Poglavje: ZALEZOVANJE, TIPANJE V SODOBNOST SE NADALJUJE</li>
-        <li>10. Poglavje: ORGIJA STEGEN IN ZNOVA V MIŠNICI</li>
-        <li>11. Poglavje: PREDGOVOR K FILIBERTU, PODLOŽENEMU Z OTROKOM</li>
-        <li>12. Poglavje: FILIBERT, PODLOŽEN Z OTROKOM</li>
-        <li>13. Poglavje: HLAPČIČ ALI NOVE NEVARNOSTI</li>
-        <li>14. Poglavje: ORGIJA FRISOV IN ZNOVA V MIŠNICI</li>
+        <li id="chapter3">3. Poglavje: V MIŠNICI IN NADALJNEM MEČKANJU</li>
+        <li id="chapter4">4. Poglavje: PREDGOVOR K FILIDORJU S PODLAGO V OTROKU</li>
+        <li id="chapter5">5. Poglavje: FILIDOR, S PODLAGO V OTROKU</li>
+        <li id="chapter6">6. Poglavje: ZAPELJEVANJE, SILJENJE V MLADOST SE NADALJUJE</li>
+        <li id="chapter7">7. Poglavje: LJUBEZEN</li>
+        <li id="chapter8">8. Poglavje: KOMPOT</li>
+        <li id="chapter9">9. Poglavje: ZALEZOVANJE, TIPANJE V SODOBNOST SE NADALJUJE</li>
+        <li id="chapter10">10. Poglavje: ORGIJA STEGEN IN ZNOVA V MIŠNICI</li>
+        <li id="chapter11">11. Poglavje: PREDGOVOR K FILIBERTU, PODLOŽENEMU Z OTROKOM</li>
+        <li id="chapter12">12. Poglavje: FILIBERT, PODLOŽEN Z OTROKOM</li>
+        <li id="chapter13">13. Poglavje: HLAPČIČ ALI NOVE NEVARNOSTI</li>
+        <li id="chapter14">14. Poglavje: ORGIJA FRISOV IN ZNOVA V MIŠNICI</li>
     </ul>
 
     <p>Nazaj na <a th:href="@{/}">domačo stran</a></p>
     <script>
         const audioPlayer = document.getElementById("audio-player");
 
+        const chapter1 = document.getElementById("chapter1");
         const chapter2 = document.getElementById("chapter2");
+        const chapter3 = document.getElementById("chapter3");
+        const chapter4 = document.getElementById("chapter4");
+        const chapter5 = document.getElementById("chapter5");
+        const chapter6 = document.getElementById("chapter6");
+        const chapter7 = document.getElementById("chapter7");
+        const chapter8 = document.getElementById("chapter8");
+        const chapter9 = document.getElementById("chapter9");
+        const chapter10 = document.getElementById("chapter10");
+        const chapter11 = document.getElementById("chapter11");
+        const chapter12 = document.getElementById("chapter12");
+        const chapter13 = document.getElementById("chapter13");
+        const chapter14 = document.getElementById("chapter14");
 
         document.addEventListener("DOMContentLoaded", (e) => {
             if (localStorage.getItem("player-position")) {
@@ -45,8 +58,60 @@
             localStorage.setItem("player-position", audioPlayer.currentTime);
         });
 
+        chapter1.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 23;
+        });
+
         chapter2.addEventListener("click", (e) => {
-            audioPlayer.fastSeek(2981);
+            audioPlayer.currentTime = 2981;
+        });
+
+        chapter3.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 6943;
+        });
+
+        chapter4.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 9940;
+        });
+
+        chapter5.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 12950;
+        });
+
+        chapter6.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 15259;
+        });
+
+        chapter7.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 17586;
+        });
+
+        chapter8.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 19309;
+        });
+
+        chapter9.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 21529;
+        });
+
+        chapter10.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 24603;
+        });
+
+        chapter11.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 27869;
+        });
+
+        chapter12.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 28445;
+        });
+
+        chapter13.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 28787;
+        });
+
+        chapter14.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 33430;
         });
     </script>
 </body>
