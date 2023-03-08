@@ -13,6 +13,8 @@
     <h3>prevedla: Katarina Šalamun-Biedrzycka</h3>
     <h4>prebral: Rok Klančar</h4>
     <audio id="audio-player" controls th:src="@{/ferdydurke_stream}"></audio>
+    <button id="back-30-sec">Prevrti 30 sekund</button>
+    <button id="forward-30-sec">Preskoči 30 sekund</button>
     <ul>
         <li id="chapter1">1. Poglavje: UGRABITEV</li>
         <li id="chapter2">2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
@@ -34,6 +36,9 @@
     <script>
         const audioPlayer = document.getElementById("audio-player");
 
+        const back30Sec = document.getElementById("back-30-sec");
+        const forward30Sec = document.getElementById("forward-30-sec");
+
         const chapter1 = document.getElementById("chapter1");
         const chapter2 = document.getElementById("chapter2");
         const chapter3 = document.getElementById("chapter3");
@@ -54,6 +59,16 @@
                 audioPlayer.fastSeek(localStorage.getItem("player-position"));
             }
         });
+
+
+        back30Sec.addEventListener("click", (e) => {
+            audioPlayer.currentTime -= 30;
+        });
+
+        forward30Sec.addEventListener("click", (e) => {
+            audioPlayer.currentTime += 30;
+        });
+
 
         audioPlayer.addEventListener("timeupdate", (e) => {
             localStorage.setItem("player-position", audioPlayer.currentTime);
