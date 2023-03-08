@@ -13,8 +13,22 @@
     <h3>prevedla: Katarina Šalamun-Biedrzycka</h3>
     <h4>prebral: Rok Klančar</h4>
     <audio id="audio-player" controls th:src="@{/ferdydurke_stream}"></audio>
+    <br>
     <button id="back-30-sec">Prevrti 30 sekund</button>
     <button id="forward-30-sec">Preskoči 30 sekund</button>
+    <br>
+    <h4>Hitrost predvajanja</h4>
+    <ul>
+        <li id="x0.5">x0.5</li>
+        <li id="x0.75">x0.75</li>
+        <li id="x1.0">x1.0</li>
+        <li id="x1.25">x1.25</li>
+        <li id="x1.5">x1.5</li>
+        <li id="x1.75">x1.75</li>
+        <li id="x2.0">x2.0</li>
+    </ul>
+    <br>
+    <h4>Poglavja</h4>
     <ul>
         <li id="chapter1">1. Poglavje: UGRABITEV</li>
         <li id="chapter2">2. Poglavje: V JETNIŠTVU IN NADALJNEM MANJŠANJU</li>
@@ -31,6 +45,14 @@
         <li id="chapter13">13. Poglavje: HLAPČIČ ALI NOVE NEVARNOSTI</li>
         <li id="chapter14">14. Poglavje: ORGIJA FRISOV IN ZNOVA V MIŠNICI</li>
     </ul>
+    <br>
+    <h4>Najboljši trenutki</h4>
+    <ol>
+        <li id="cool-moment1">3:48:20</li>
+        <li id="cool-moment2">4:14:50</li>
+        <li id="cool-moment3">6:35:55</li>
+        <li id="cool-moment4">7:54:15</li>
+    </ol>
 
     <p>Nazaj na <a th:href="@{/}">domačo stran</a></p>
     <script>
@@ -38,6 +60,14 @@
 
         const back30Sec = document.getElementById("back-30-sec");
         const forward30Sec = document.getElementById("forward-30-sec");
+
+        const x05 = document.getElementById("x0.5");
+        const x075 = document.getElementById("x0.75");
+        const x1 = document.getElementById("x1.0");
+        const x125 = document.getElementById("x1.25");
+        const x15 = document.getElementById("x1.5");
+        const x175 = document.getElementById("x1.75");
+        const x2 = document.getElementById("x2.0");
 
         const chapter1 = document.getElementById("chapter1");
         const chapter2 = document.getElementById("chapter2");
@@ -54,12 +84,49 @@
         const chapter13 = document.getElementById("chapter13");
         const chapter14 = document.getElementById("chapter14");
 
+        const coolMoment1 = document.getElementById("cool-moment1");
+        const coolMoment2 = document.getElementById("cool-moment2");
+        const coolMoment3 = document.getElementById("cool-moment3");
+        const coolMoment4 = document.getElementById("cool-moment4");
+
         document.addEventListener("DOMContentLoaded", (e) => {
             if (localStorage.getItem("player-position")) {
                 audioPlayer.fastSeek(localStorage.getItem("player-position"));
             }
         });
 
+
+        // Play speed
+
+        x05.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 0.5;
+        });
+
+        x075.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 0.75;
+        });
+
+        x1.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 1.0;
+        });
+
+        x125.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 1.25;
+        });
+
+        x15.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 1.5;
+        });
+
+        x175.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 1.75;
+        });
+
+        x2.addEventListener("click", (e) => {
+            audioPlayer.playbackRate = 2.0;
+        });
+
+        // Rewind/fast forward
 
         back30Sec.addEventListener("click", (e) => {
             audioPlayer.currentTime -= 30;
@@ -69,10 +136,13 @@
             audioPlayer.currentTime += 30;
         });
 
+        // Store playhead position
 
         audioPlayer.addEventListener("timeupdate", (e) => {
             localStorage.setItem("player-position", audioPlayer.currentTime);
         });
+
+        // Chapters
 
         chapter1.addEventListener("click", (e) => {
             audioPlayer.currentTime = 23;
@@ -128,6 +198,24 @@
 
         chapter14.addEventListener("click", (e) => {
             audioPlayer.currentTime = 33430;
+        });
+
+        // Cool moments
+
+        coolMoment1.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 13700;
+        });
+
+        coolMoment2.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 15290;
+        });
+
+        coolMoment3.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 23755;
+        });
+
+        coolMoment4.addEventListener("click", (e) => {
+            audioPlayer.currentTime = 28455;
         });
     </script>
 </body>
