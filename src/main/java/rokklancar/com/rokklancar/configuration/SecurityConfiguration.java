@@ -12,7 +12,7 @@ public class SecurityConfiguration {
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/ferdydurke").permitAll()
+                        .requestMatchers("/", "/ferdydurke", "/ferdydurke_stream").permitAll()
                 );
 
         return http.build();
