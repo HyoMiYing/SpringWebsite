@@ -13,7 +13,6 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/", "/ferdydurke").permitAll()
-                        .anyRequest().denyAll()
                 );
 
         return http.build();
