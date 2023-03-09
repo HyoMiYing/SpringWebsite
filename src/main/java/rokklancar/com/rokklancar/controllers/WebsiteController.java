@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -32,7 +33,12 @@ public class WebsiteController {
     }
 
     @GetMapping("/ferdydurke")
-    public String ferdydurke() {
+    public String ferdydurke(Principal principal) {
+        try {
+            System.out.println("principal: " + principal.getName());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return "audiobook_player.html";
     }
 
